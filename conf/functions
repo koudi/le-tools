@@ -1,0 +1,9 @@
+function setup_httpd {
+    domain=$1
+    cp "${key_dir}/${domain}" "${httpd_key_dir}/${domain}"
+    cp "${cert_dir}/${domain}" "${httpd_cert_dir}/${domain}"
+
+    chown root "${httpd_key_dir}/${domain}" "${httpd_cert_dir}/${domain}"
+    chmod 0600 "${httpd_key_dir}/${domain}" "${httpd_cert_dir}/${domain}"
+    restorecon "${httpd_key_dir}/${domain}" "${httpd_cert_dir}/${domain}"
+}  

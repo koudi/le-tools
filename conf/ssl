@@ -1,0 +1,7 @@
+distinguished_name      = req_distinguished_name
+prompt                  = no
+
+[req_distinguished_name]
+countryName             = XX
+organizationName        = OrgName
+
