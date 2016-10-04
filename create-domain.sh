@@ -3,6 +3,13 @@
 . "$(dirname $0)/conf/config"
 . "$(dirname $0)/conf/functions"
 
+if [ $# -lt 1 ]
+then
+    echo "No domain name specified"
+    echo "Usage: ${0} domain-name"
+    exit
+fi
+
 domain=$1
 
 if [ ! -f "key/${domain}" ]; then
