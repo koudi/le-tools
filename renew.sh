@@ -18,7 +18,8 @@ download_cross_signed
 
 for f in cert/*; do
 	domain=$(basename $f)
-	python $acme --account-key $account_key --csr "${csr_dir}/${domain}" --acme-dir "${challenge_dir}" > "${cert_dir=}/${domain}" || exit
+    #TODO - detect failed renew and process
+	python $acme --account-key $account_key --csr "${csr_dir}/${domain}" --acme-dir "${challenge_dir}" > "${cert_dir=}/${domain}"
 	setup_httpd $domain $mode
 
 done;
