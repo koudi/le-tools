@@ -1,4 +1,4 @@
-base="/opt/le-tools"
+base="$(dirname $0)"
 
 account_key="${base}/conf/account.key"
 challenge_dir="/var/www/html/acme-challenge/"
