@@ -1,9 +1,22 @@
 function setup_httpd {
     domain=$1
+    mode=$2
+
     cp "${key_dir}/${domain}" "${httpd_key_dir}/${domain}"
-    cp "${cert_dir}/${domain}" "${httpd_cert_dir}/${domain}"
+
+    if [ $mode == "nginx"]; then
+        cat "${httpd_cross_signed}" "${cert_dir}/${domain}" \
+        > "${httpd_cert_dir}/${domain}"
+    else
+        cp "${cert_dir}/${domain}" "${httpd_cert_dir}/${domain}"
+    fi;
 
     chown root "${httpd_key_dir}/${domain}" "${httpd_cert_dir}/${domain}"
     chmod 0600 "${httpd_key_dir}/${domain}" "${httpd_cert_dir}/${domain}"
     restorecon "${httpd_key_dir}/${domain}" "${httpd_cert_dir}/${domain}"
-}  
+}
+
+function download_cross_signed {
+    wget -O - "https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem" \
+    > "${httpd_cross_signed}"
+}
