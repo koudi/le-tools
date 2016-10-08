@@ -4,7 +4,7 @@
 . "$(dirname $0)/conf/config"
 . "$(dirname $0)/conf/functions"
 
-mode="apache"
+mode="${default_mode}"
 
 if [ $1 == "-nginx" ]; then
     mode="nginx"

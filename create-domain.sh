@@ -10,7 +10,7 @@ then
     exit
 fi
 
-mode="apache"
+mode="${default_mode}"
 
 if [ $1 == "-nginx" ]; then
     mode="nginx"
