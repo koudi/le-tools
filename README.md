@@ -9,6 +9,7 @@ on a webserver (apache/nginx). It uses [https://github.com/diafygi/acme-tiny/](a
 0. Check if `conf/config suits` your needs. Possibly override in `conf/custom`.
 0. Install systemd units from `misc/` and enable. Check paths and mode (see later) in those.
 0. Copy or create (`openssl genrsa 4096 > conf/account.key`) your account.key.
+0. Make sure that `.well-known` path on your server is accessible from internet (see examples in misc)
 
 ## Usage
 

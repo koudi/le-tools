@@ -1,0 +1,6 @@
+Alias "/.well-known/acme-challenge" "/var/www/html/acme-challenge"
+
+<Directory /var/www/html/acme-challenge>
+        Options -Indexes
+</Directory>
+
