@@ -6,18 +6,8 @@
 if [ $# -lt 1 ]
 then
     echo "No domain name specified"
-    echo "Usage: ${0} [-apache|-nginx] domain-name"
+    echo "Usage: ${0} domain-name"
     exit
-fi
-
-mode="${default_mode}"
-
-if [ $1 == "-nginx" ]; then
-    mode="nginx"
-    shift 1
-elif [ $1 == "-apache" ]; then
-    mode="apache"
-    shift 1
 fi
 
 domain=$1
@@ -50,13 +40,11 @@ if [ ! -f "key/${domain}" ]; then
         --acme-dir "${challenge_dir}" \
         > "${cert_dir}/${domain}"
 
-    if [ $mode == "nginx" ];then
+    if [ $web_server == "nginx" ];then
         download_cross_signed
     fi
 
-    setup_httpd $domain $mode
-
-    #systemctl reload httpd
+    setup_httpd $domain $web_server
 
 else
     echo "Domain file for ${domain} already exists"

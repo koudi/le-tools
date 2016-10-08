@@ -21,11 +21,8 @@ will be requested.
 ### Web server mode
 
 By default (can be changed in config) these tools assume apache as web server.
-You can change this in config or by parameter:
-```
-create-domain.sh -apache example.com
-create-domain.sh -nginx example.com
-```
+You can change this in config parameter **web_server**. Valid values are 
+*nginx* or *apache*:
 
 The only difference is what service gets reloaded after renewal and that in
 nginx mode the le cross signed cert is appended to your domain certificate.
