@@ -12,3 +12,5 @@ httpd_cross_signed="/etc/pki/tls/certs/le-cross-signed.pem"
 acme="${base}/acme_tiny.py"
 ssl_conf="${base}/conf/ssl"
 default_mode="apache"
+
+. "${base}/custom"
