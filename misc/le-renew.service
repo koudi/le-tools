@@ -1,0 +1,8 @@
+[Unit]
+Description=Let's encrypt certificates renewal
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/le-tools/
+ExecStart=/opt/le-tools/renew.sh
+User=root
