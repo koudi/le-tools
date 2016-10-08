@@ -13,4 +13,4 @@ acme="${base}/acme_tiny.py"
 ssl_conf="${base}/conf/ssl"
 default_mode="apache"
 
-. "${base}/custom"
+. "${base}/conf/custom"
