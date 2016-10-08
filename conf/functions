@@ -4,7 +4,7 @@ function setup_httpd {
 
     cp "${key_dir}/${domain}" "${httpd_key_dir}/${domain}"
 
-    if [ $mode == "nginx"]; then
+    if [ $mode == "nginx" ]; then
         cat "${cert_dir}/${domain}" "${httpd_cross_signed}" \
         > "${httpd_cert_dir}/${domain}"
     else
