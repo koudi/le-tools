@@ -14,6 +14,9 @@ for f in cert/*; do
 
 done;
 
-systemctl reload httpd
-
+if [ $web_server == "apache" ]; then
+    systemctl reload httpd
+else
+    systemctl reload nginx
+fi;
 
